@@ -1,0 +1,24 @@
+// Couleurs
+$primary-color: #667eea;
+$secondary-color: #764ba2;
+$accent-color: #f093fb;
+$bg-dark: #0a0a0a;
+$bg-darker: #050505;
+$text-primary: #ffffff;
+$text-secondary: #b0b0b0;
+
+// Gradients
+$primary-gradient: linear-gradient(135deg, #{$primary-color} 0%, #{$secondary-color} 100%);
+$secondary-gradient: linear-gradient(135deg, #{$accent-color} 0%, #f5576c 100%);
+
+// Espacements
+$spacing-xs: 0.5rem;
+$spacing-sm: 1rem;
+$spacing-md: 2rem;
+$spacing-lg: 4rem;
+$spacing-xl: 6rem;
+
+// Breakpoints
+$mobile: 768px;
+$tablet: 1024px;
+$desktop: 1200px;
