@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Skill } from '../../types/types';
-import './Skills.scss';
+import { Skill } from '../../types';
 
 const Skills: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>('frontend');

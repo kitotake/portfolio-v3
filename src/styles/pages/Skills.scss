@@ -1,5 +1,9 @@
-@import '../../styles/styles/variables.scss';
-@import '../../styles/styles/mixins.scss';
+
+@use '../variables.scss'  as *;
+@use '../mixins.scss'  as *;
+@use '../animations.scss'  as *;
+
+
 
 .skills {
   position: relative;

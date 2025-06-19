@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './Hero.scss';
+
 
 const Hero: React.FC = () => {
   const [displayText, setDisplayText] = useState('');

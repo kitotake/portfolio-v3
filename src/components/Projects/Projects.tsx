@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Project } from '../../types/types';
-import './Projects.scss';
+import { Project } from '../../types';
 
 const Projects: React.FC = () => {
   const [filter, setFilter] = useState<string>('all');
@@ -201,4 +200,37 @@ const Projects: React.FC = () => {
             </div>
           ))}
         </div>
+    
+        {/* Modal Projet */}
+        {selectedProject && (
+          <div className="project-modal" onClick={closeProjectModal}>
+            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+              <button className="modal-close" onClick={closeProjectModal}>
+                &times;
+              </button>
+              <h3>{selectedProject.title}</h3>
+              <img src={selectedProject.image} alt={selectedProject.title} />
+              <p>{selectedProject.description}</p>
+              <div className="modal-tech">
+                {selectedProject.tech.map((tech) => (
+                  <span key={tech} className="tech-tag">{tech}</span>
+                ))}
+              </div>
+              <div className="modal-actions">
+                <a href={selectedProject.link} target="_blank" rel="noopener noreferrer" className="action-btn">
+                  Voir le projet
+                </a>
+                <a href={selectedProject.github} target="_blank" rel="noopener noreferrer" className="action-btn">
+                  Code source
+                </a>
+              </div>
+            </div>
+          </div>
+        )}
 
+      </div>
+    </section>
+  );
+};
+
+export default Projects;

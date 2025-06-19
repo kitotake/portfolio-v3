@@ -1,0 +1,123 @@
+
+
+@use '../variables.scss'  as *;
+@use '../mixins.scss'  as *;
+
+
+.contact {
+    background-color: $bg-dark;
+    color: $text-primary;
+    padding: $spacing-lg $spacing-md;
+  
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      background: $secondary-gradient;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: $spacing-md;
+    }
+  
+    .contact-intro {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto $spacing-lg auto;
+      color: $text-secondary;
+      font-size: 1.1rem;
+    }
+  
+    .contact-form {
+      max-width: 700px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-sm;
+  
+      input,
+      textarea {
+        background-color: $bg-darker;
+        border: 1px solid $secondary-color;
+        padding: $spacing-sm;
+        border-radius: 0.5rem;
+        color: $text-primary;
+        font-size: 1rem;
+        transition: border-color 0.3s, box-shadow 0.3s;
+  
+        &:focus {
+          border-color: $accent-color;
+          box-shadow: 0 0 0 3px rgba($accent-color, 0.3);
+          outline: none;
+        }
+      }
+  
+      textarea {
+        min-height: 150px;
+        resize: vertical;
+      }
+  
+      .form-actions {
+        display: flex;
+        justify-content: center;
+  
+        .submit-btn {
+          background: $primary-gradient;
+          color: $text-primary;
+          padding: 0.7rem 1.5rem;
+          border: none;
+          border-radius: 0.5rem;
+          font-size: 1rem;
+          cursor: pointer;
+          font-weight: bold;
+          transition: background 0.3s, transform 0.2s;
+  
+          &:hover {
+            background: $secondary-gradient;
+            transform: translateY(-2px);
+          }
+        }
+      }
+    }
+  
+    .contact-socials {
+      margin-top: $spacing-lg;
+      display: flex;
+      justify-content: center;
+      gap: $spacing-sm;
+      flex-wrap: wrap;
+  
+      .social-link {
+        background: $bg-darker;
+        border: 1px solid $secondary-color;
+        border-radius: 50%;
+        width: 3rem;
+        height: 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.3s, transform 0.2s;
+  
+        svg {
+          stroke: $text-secondary;
+          width: 1.5rem;
+          height: 1.5rem;
+        }
+  
+        &:hover {
+          background: $secondary-gradient;
+          transform: scale(1.1);
+  
+          svg {
+            stroke: $text-primary;
+          }
+        }
+      }
+    }
+  
+    .contact-info {
+      text-align: center;
+      color: $text-secondary;
+      font-size: 0.9rem;
+      margin-top: $spacing-md;
+    }
+  }
+  
