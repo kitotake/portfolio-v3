@@ -1,6 +1,6 @@
 
-@use '../variables.scss'  as *;
-@use '../mixins.scss'  as *;
+@import '../variables.scss' ;
+@import '../mixins.scss' ;
 
 .hero {
   position: relative;

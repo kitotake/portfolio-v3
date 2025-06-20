@@ -1,13 +1,15 @@
+@import '../variables.scss';
+@import '../mixins.scss';
+@import '../animations.scss';
+@import '../globals.scss';
 
-@use '../variables.scss'  as *;
-@use '../mixins.scss'  as *;
-@use '../animations.scss'  as *;
-
-
+// ---------------------
+// Section Skills globale
+// ---------------------
 
 .skills {
   position: relative;
-  
+
   &::before {
     content: '';
     position: absolute;
@@ -15,18 +17,22 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: 
+    background:
       radial-gradient(circle at 20% 80%, rgba(102, 126, 234, 0.1) 0%, transparent 50%),
       radial-gradient(circle at 80% 20%, rgba(118, 75, 162, 0.1) 0%, transparent 50%);
     z-index: -1;
   }
 }
 
+// ---------------------
+// Intro skills
+// ---------------------
+
 .skills-intro {
   text-align: center;
   max-width: 600px;
   margin: 0 auto 3rem;
-  
+
   p {
     font-size: 1.1rem;
     color: $text-secondary;
@@ -34,13 +40,416 @@
   }
 }
 
+// ---------------------
+// Contrôles Skills (recherche, tri)
+// ---------------------
+
+.skills-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  padding: 1.5rem 0;
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: slideInDown 0.6s ease-out 0.2s forwards;
+
+  @include responsive($tablet) {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: stretch;
+  }
+
+  @include responsive($mobile) {
+    gap: 1rem;
+    padding: 1rem 0;
+  }
+
+  @include responsive(480px) {
+    padding: 0.5rem 0;
+  }
+}
+
+// ---------------------
+// Search container & input
+// ---------------------
+
+.search-container {
+  position: relative;
+  flex: 1;
+  max-width: 400px;
+
+  @include responsive($tablet) {
+    max-width: 100%;
+  }
+
+  @include responsive(480px) {
+    order: 2;
+  }
+}
+
+.skill-search {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  padding-right: 3rem;
+  @include glass-effect;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  color: $text-primary;
+  font-size: 1rem;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+
+  &::placeholder {
+    color: $text-secondary;
+    opacity: 0.7;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: rgba(102, 126, 234, 0.5);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    transform: translateY(-1px);
+  }
+
+  &:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.07);
+  }
+
+  @include responsive($mobile) {
+    padding: 0.8rem 1.2rem;
+    padding-right: 2.5rem;
+    font-size: 0.9rem;
+  }
+
+  // Supprimer le bouton clear natif webkit
+  &::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  // Focus visible pour accessibilité
+  &:focus-visible {
+    outline: 2px solid $primary-color;
+    outline-offset: 2px;
+  }
+}
+
+// ---------------------
+// Search icon
+// ---------------------
+
+.search-icon {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+  color: $text-secondary;
+  pointer-events: none;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+
+  // Pour l’effet focus, il faudra gérer via JS la classe .focused sur .search-container
+  .skill-search:focus + & {
+    color: $primary-color;
+    opacity: 1;
+  }
+
+  @include responsive($mobile) {
+    right: 0.8rem;
+    font-size: 1.1rem;
+  }
+}
+
+// ---------------------
+// Sort controls (tri)
+// ---------------------
+
+.sort-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  @include responsive($tablet) {
+    justify-content: center;
+  }
+
+  @include responsive($mobile) {
+    gap: 0.8rem;
+  }
+
+  @include responsive(480px) {
+    order: 1;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    label {
+      font-size: 0.85rem;
+    }
+  }
+
+  label {
+    color: $text-secondary;
+    font-size: 0.95rem;
+    font-weight: 500;
+    white-space: nowrap;
+
+    @include responsive($mobile) {
+      font-size: 0.9rem;
+    }
+  }
+}
+
+.show-more-container {
+  text-align: center;
+  margin-top: 2rem;
+
+  .show-more-btn {
+    @include glass-effect;
+    background: rgba(102, 126, 234, 0.2);
+    border: 1px solid rgba(102, 126, 234, 0.4);
+    color: $primary-color;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.75rem 2rem;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 
+      background 0.3s ease,
+      color 0.3s ease,
+      transform 0.2s ease,
+      box-shadow 0.3s ease;
+
+    &:hover,
+    &:focus {
+      background: $primary-color;
+      color: #fff;
+      box-shadow: 0 8px 15px rgba(102, 126, 234, 0.4);
+      transform: translateY(-2px);
+      outline: none;
+    }
+
+    &:active {
+      transform: translateY(0);
+      box-shadow: none;
+    }
+
+    @include responsive($mobile) {
+      padding: 0.6rem 1.5rem;
+      font-size: 0.9rem;
+      border-radius: 10px;
+    }
+  }
+}
+
+.skill-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.skill-modal {
+  position: relative;
+  max-width: 480px;
+  width: 90%;
+  padding: 1.5rem;
+  border-radius: 16px;
+  font-family: inherit;
+  color: $text-primary;
+
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 15px rgba(102, 126, 234, 0.4);
+
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease-out forwards;
+  transition: all 0.3s ease;
+
+  @include responsive($mobile) {
+    padding: 1.5rem 1rem;
+  }
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: $text-secondary;
+  cursor: pointer;
+  transition: color 0.3s ease;
+
+  &:hover,
+  &:focus {
+    color: $primary-color;
+    outline: none;
+  }
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+
+  h3 {
+    flex: 1;
+    font-size: 1.5rem;
+    color: $text-primary;
+    margin: 0;
+  }
+}
+
+.modal-icon {
+  font-size: 2rem;
+  color: $primary-color;
+}
+
+.modal-level {
+  font-weight: 700;
+  color: $primary-color;
+  font-size: 1.2rem;
+  white-space: nowrap;
+}
+
+.modal-content {
+  .skill-description {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    color: $text-secondary;
+  }
+
+  .skill-experience {
+    font-size: 0.95rem;
+    color: $text-secondary;
+    margin-bottom: 1.5rem;
+
+    strong {
+      font-weight: 600;
+      color: $text-primary;
+    }
+  }
+
+  .skill-level-bar {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    height: 12px;
+    overflow: hidden;
+
+    .level-progress {
+      height: 100%;
+      background: $primary-color;
+      width: 0;
+      border-radius: 8px;
+      transition: width 0.5s ease;
+    }
+  }
+}
+
+
+.sort-select {
+  padding: 0.8rem 1.2rem;
+  @include glass-effect;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  color: $text-primary;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 120px;
+
+  &:focus {
+    outline: none;
+    border-color: rgba(102, 126, 234, 0.5);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  }
+
+  &:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.07);
+    transform: translateY(-1px);
+  }
+
+  option {
+    background: $bg-darker;
+    color: $text-primary;
+    padding: 0.5rem;
+  }
+
+  @include responsive($mobile) {
+    padding: 0.7rem 1rem;
+    font-size: 0.9rem;
+    min-width: 100px;
+  }
+
+  // Focus visible accessibilité
+  &:focus-visible {
+    outline: 2px solid $primary-color;
+    outline-offset: 2px;
+  }
+}
+
+// ---------------------
+// Animation slideInDown
+// ---------------------
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// ---------------------
+// Dark mode support
+// ---------------------
+
+@media (prefers-color-scheme: dark) {
+  .skill-search,
+  .sort-select {
+    background: rgba(0, 0, 0, 0.2);
+
+    &:focus {
+      background: rgba(0, 0, 0, 0.3);
+    }
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.25);
+    }
+  }
+}
+
+// ---------------------
+// Skills categories boutons
+// ---------------------
+
 .skills-categories {
   display: flex;
   justify-content: center;
   gap: 1rem;
   margin-bottom: 3rem;
   flex-wrap: wrap;
-  
+
   @include responsive($mobile) {
     gap: 0.5rem;
   }
@@ -57,18 +466,18 @@
   cursor: pointer;
   transition: all 0.3s ease;
   font-size: 1rem;
-  
+
   &:hover {
     transform: translateY(-2px);
     color: $text-primary;
   }
-  
+
   &.active {
     background: rgba(102, 126, 234, 0.2);
     color: $text-primary;
     border: 1px solid rgba(102, 126, 234, 0.3);
   }
-  
+
   @include responsive($mobile) {
     padding: 0.8rem 1.5rem;
     font-size: 0.9rem;
@@ -79,12 +488,16 @@
   font-size: 1.2rem;
 }
 
+// ---------------------
+// Skills grid & items
+// ---------------------
+
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1.5rem;
   margin-bottom: 4rem;
-  
+
   @include responsive($mobile) {
     grid-template-columns: 1fr;
     gap: 1rem;
@@ -98,7 +511,7 @@
   opacity: 0;
   transform: translateY(20px);
   animation: fadeInUp 0.6s ease-out forwards;
-  
+
   &:hover {
     transform: translateY(-5px);
     background: rgba(255, 255, 255, 0.08);
@@ -138,82 +551,15 @@
   width: 100%;
   height: 8px;
   background: rgba(255, 255, 255, 0.1);
-  border-radius: 4px;
+  border-radius: 6px;
   overflow: hidden;
-  position: relative;
-}
+  margin-top: 0.5rem;
 
-.skill-progress {
-  height: 100%;
-  background: $primary-gradient;
-  border-radius: 4px;
-  width: 0;
-  transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      rgba(255, 255, 255, 0.3),
-      transparent
-    );
-    transform: translateX(-100%);
-    animation: shimmer 2s infinite;
-  }
-  
-  &.animated {
-    width: var(--skill-level);
-    animation-delay: var(--animation-delay);
-  }
-}
-
-@keyframes shimmer {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
-}
-
-.skills-summary {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  margin-top: 3rem;
-  
-  @include responsive($mobile) {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-}
-
-.summary-card {
-  @include glass-effect;
-  padding: 2rem;
-  text-align: center;
-  @include hover-lift;
-  
-  h3 {
-    font-size: 1.3rem;
-    color: $text-primary;
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-  }
-  
-  p {
-    color: $text-secondary;
-    line-height: 1.6;
-    font-size: 0.95rem;
-  }
-  
-  @include responsive($mobile) {
-    padding: 1.5rem;
+  .skill-progress {
+    height: 100%;
+    background: $primary-color;
+    width: 0;
+    border-radius: 6px;
+    transition: width 0.5s ease;
   }
 }

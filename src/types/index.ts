@@ -13,7 +13,9 @@ export interface Project {
     name: string;
     level: number;
     icon: React.ReactNode;
-    category: 'frontend' | 'backend' | 'design' | 'tools';
+    category:
+    'frontend' | 'backend' | 'design' | 'tools' |
+    'database' | 'devops' | 'testing' | 'security' | 'other'; 
   }
   
   export interface ContactForm {

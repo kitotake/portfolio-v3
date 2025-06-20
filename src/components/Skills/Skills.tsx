@@ -4,45 +4,130 @@ import { Skill } from '../../types';
 const Skills: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>('frontend');
   const [animatedSkills, setAnimatedSkills] = useState<Set<string>>(new Set());
+  const [searchTerm, setSearchTerm] = useState<string>('');
+  const [showAll, setShowAll] = useState<boolean>(false);
+  const [selectedSkill, setSelectedSkill] = useState<ExtendedSkill | null>(null);
+  const [sortBy, setSortBy] = useState<'name' | 'level'>('level');
 
-  const skills: Skill[] = [
+  // Interface étendue pour les données supplémentaires
+  interface ExtendedSkill extends Skill {
+    description?: string;
+    yearsOfExperience?: number;
+  }
+
+  const skills: ExtendedSkill[] = [
     // Frontend
-    { name: 'React', level: 95, icon: '⚛️', category: 'frontend' },
-    { name: 'TypeScript', level: 90, icon: '🔷', category: 'frontend' },
-    { name: 'Next.js', level: 85, icon: '▲', category: 'frontend' },
-    { name: 'Vue.js', level: 80, icon: '💚', category: 'frontend' },
-    { name: 'SCSS', level: 95, icon: '🎨', category: 'frontend' },
-    { name: 'Tailwind', level: 90, icon: '🌊', category: 'frontend' },
+    { name: 'React', level: 1, icon: '⚛️', category: 'frontend', description: 'Bibliothèque JavaScript pour créer des interfaces utilisateur interactives', yearsOfExperience: 0 },
+    { name: 'TypeScript', level: 0, icon: '🔷', category: 'frontend', description: 'Superset de JavaScript avec typage statique', yearsOfExperience: 0 },
+    { name: 'Next.js', level: 1, icon: '▲', category: 'frontend', description: 'Framework React avec rendu côté serveur et génération statique', yearsOfExperience: 0 },
+    { name: 'Vue.js', level: 1, icon: '💚', category: 'frontend', description: 'Framework JavaScript progressif pour construire des UI', yearsOfExperience: 0 },
+    { name: 'SCSS', level: 5, icon: '🎨', category: 'frontend', description: 'Préprocesseur CSS avec variables et fonctions', yearsOfExperience: 0 },
+    { name: 'Tailwind', level: 0, icon: '🌊', category: 'frontend', description: 'Framework CSS utilitaire pour un développement rapide', yearsOfExperience: 0 },
+    { name: 'HTML5', level: 75, icon: '🌐', category: 'frontend', description: 'Langage de balisage pour structurer le contenu web', yearsOfExperience: 3 },
+    { name: 'CSS3', level: 85, icon: '🎭', category: 'frontend', description: 'Feuilles de styles pour la présentation web', yearsOfExperience: 3 },
+    { name: 'JavaScript', level: 10, icon: '⚡', category: 'frontend', description: 'Langage de programmation pour le web interactif', yearsOfExperience: 1 },
     
     // Backend
-    { name: 'Node.js', level: 88, icon: '🟢', category: 'backend' },
-    { name: 'Python', level: 92, icon: '🐍', category: 'backend' },
-    { name: 'Express.js', level: 85, icon: '🚂', category: 'backend' },
-    { name: 'Django', level: 80, icon: '🎸', category: 'backend' },
-    { name: 'MongoDB', level: 85, icon: '🍃', category: 'backend' },
-    { name: 'PostgreSQL', level: 88, icon: '🐘', category: 'backend' },
+    { name: 'Node.js', level: 15, icon: '🟢', category: 'backend', description: 'Environnement d\'exécution JavaScript côté serveur', yearsOfExperience: 0 },
+    { name: 'Python', level: 2, icon: '🐍', category: 'backend', description: 'Langage de programmation polyvalent et puissant', yearsOfExperience: 0 },
+    { name: 'Express.js', level: 0, icon: '🚂', category: 'backend', description: 'Framework web minimaliste pour Node.js', yearsOfExperience: 0 },
+    { name: 'FastAPI', level: 0, icon: '⚡', category: 'backend', description: 'Framework web moderne et rapide pour Python', yearsOfExperience: 0 },
+    { name: 'GraphQL', level: 0, icon: '📊', category: 'backend', description: 'Langage de requête pour APIs', yearsOfExperience: 0 },
+    { name: 'REST API', level: 0, icon: '🔌', category: 'backend', description: 'Architecture pour services web', yearsOfExperience: 0 },
+    
+    // Database
+    { name: 'MariaDB', level: 5, icon: '🐬', category: 'database', description: 'Base de données relationnelle performante', yearsOfExperience: 1 },
+    { name: 'MongoDB', level: 0, icon: '🍃', category: 'database', description: 'Base de données NoSQL orientée documents', yearsOfExperience: 0 },
+    { name: 'PostgreSQL', level: 2, icon: '🐘', category: 'database', description: 'Base de données relationnelle avancée', yearsOfExperience: 0 },
+    { name: 'Redis', level: 0, icon: '🔴', category: 'database', description: 'Base de données en mémoire pour le cache', yearsOfExperience: 0 },
     
     // Design
-    { name: 'Figma', level: 90, icon: '🎯', category: 'design' },
-    { name: 'Adobe XD', level: 85, icon: '🔸', category: 'design' },
-    { name: 'Photoshop', level: 75, icon: '🖼️', category: 'design' },
-    { name: 'Illustrator', level: 70, icon: '✨', category: 'design' },
-    
+    { name: 'Figma', level: 75, icon: '🎯', category: 'design', description: 'Outil de design collaboratif pour interfaces', yearsOfExperience: 2 },
+    { name: 'Canva', level: 45, icon: '✨', category: 'design', description: 'Plateforme de création graphique simple', yearsOfExperience: 0 },
+    { name: 'GIMP', level: 25, icon: '🖼️', category: 'design', description: 'Éditeur d\'images libre et gratuit', yearsOfExperience: 1 },
+    { name: 'Adobe XD', level: 15, icon: '🎨', category: 'design', description: 'Outil de conception UX/UI', yearsOfExperience: 0 },
+        
     // Tools
-    { name: 'Git', level: 95, icon: '📝', category: 'tools' },
-    { name: 'Docker', level: 80, icon: '🐳', category: 'tools' },
-    { name: 'AWS', level: 75, icon: '☁️', category: 'tools' },
-    { name: 'Webpack', level: 85, icon: '📦', category: 'tools' }
+    { name: 'Git', level: 35, icon: '📝', category: 'tools', description: 'Système de contrôle de version distribué', yearsOfExperience: 1 },
+    { name: 'VS Code', level: 45, icon: '💻', category: 'tools', description: 'Éditeur de code puissant et extensible', yearsOfExperience: 3 },
+    { name: 'Webpack', level: 0, icon: '📦', category: 'tools', description: 'Bundler de modules pour applications web', yearsOfExperience: 0 },
+    { name: 'Vite', level: 5, icon: '⚡', category: 'tools', description: 'Outil de build rapide pour le développement', yearsOfExperience: 0 },
+    { name: 'ESLint', level: 0, icon: '📏', category: 'tools', description: 'Linter pour identifier les problèmes de code', yearsOfExperience: 0 },
+    { name: 'Prettier', level: 3, icon: '✨', category: 'tools', description: 'Formateur de code automatique', yearsOfExperience: 0 },
+
+    // DevOps
+    { name: 'Docker', level: 0, icon: '🐳', category: 'devops', description: 'Plateforme de conteneurisation d\'applications', yearsOfExperience: 1 },
+    { name: 'AWS', level: 0, icon: '☁️', category: 'devops', description: 'Services cloud Amazon Web Services', yearsOfExperience: 0 },
+    { name: 'Nginx', level: 0, icon: '🌐', category: 'devops', description: 'Serveur web et proxy inverse performant', yearsOfExperience: 0 },
+    { name: 'CI/CD', level: 0, icon: '🔄', category: 'devops', description: 'Intégration et déploiement continus', yearsOfExperience: 0 },
+
+    // Testing
+    { name: 'Jest', level: 0, icon: '🃏', category: 'testing', description: 'Framework de test JavaScript', yearsOfExperience: 0 },
+    { name: 'Cypress', level: 0, icon: '🌲', category: 'testing', description: 'Outil de test end-to-end', yearsOfExperience: 0 },
+    { name: 'Testing Library', level: 0, icon: '🧪', category: 'testing', description: 'Utilitaires pour tester les composants', yearsOfExperience: 0 },
+    { name: 'Postman', level: 0, icon: '📮', category: 'testing', description: 'Plateforme pour tester les APIs', yearsOfExperience: 0 },
+
+    
+    { name: 'FiveM', level: 50, icon: '🎮', category: 'other',
+      description: 'Développement complet de serveurs FiveM avec gestion du backend, UI web et bonnes pratiques de sécurité.', yearsOfExperience: 30},
+
+    // Security
+    { name: 'JWT', level: 0, icon: '🔐', category: 'security', description: 'Tokens sécurisés pour l\'authentification', yearsOfExperience: 0 },
+    { name: 'OAuth', level: 0, icon: '🛡️', category: 'security', description: 'Protocole d\'autorisation sécurisé', yearsOfExperience: 0 },
+    { name: 'HTTPS/SSL', level: 1, icon: '🔒', category: 'security', description: 'Protocoles de sécurisation des communications', yearsOfExperience: 0 },
+    { name: 'OWASP', level: 0, icon: '⚠️', category: 'security', description: 'Bonnes pratiques de sécurité web', yearsOfExperience: 0 },
+
+
   ];
 
   const categories = [
-    { id: 'frontend', name: 'Frontend', icon: '🎨' },
-    { id: 'backend', name: 'Backend', icon: '⚙️' },
-    { id: 'design', name: 'Design', icon: '🎯' },
-    { id: 'tools', name: 'Outils', icon: '🛠️' }
+    { id: 'frontend', name: 'Frontend', icon: '🖥️' },
+    { id: 'backend', name: 'Backend', icon: '🧩' },
+    { id: 'database', name: 'Base de données', icon: '🗄️' },
+    { id: 'design', name: 'Design', icon: '🎨' },
+    { id: 'tools', name: 'Outils', icon: '🛠️' },
+    { id: 'devops', name: 'DevOps', icon: '🚀' },
+    { id: 'testing', name: 'Tests', icon: '🧪' },
+    { id: 'security', name: 'Sécurité', icon: '🔒' },
+    { id: 'other', name: 'Autres', icon: '📦' },
   ];
 
-  const filteredSkills = skills.filter(skill => skill.category === activeCategory);
+  // Filtrage et tri des compétences
+  const getFilteredAndSortedSkills = () => {
+    let filtered = skills.filter(skill => 
+      skill.category === activeCategory &&
+      skill.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
+    // Tri par niveau ou nom
+    filtered.sort((a, b) => {
+      if (sortBy === 'level') {
+        return b.level - a.level;
+      }
+      return a.name.localeCompare(b.name);
+    });
+
+    // Limiter l'affichage si showAll est false
+    if (!showAll && filtered.length > 6) {
+      filtered = filtered.slice(0, 6);
+    }
+
+    return filtered;
+  };
+
+  const filteredSkills = getFilteredAndSortedSkills();
+
+  // Statistiques
+  const getStats = () => {
+    const categorySkills = skills.filter(skill => skill.category === activeCategory);
+    const avgLevel = Math.round(categorySkills.reduce((sum, skill) => sum + skill.level, 0) / categorySkills.length);
+    const expertSkills = categorySkills.filter(skill => skill.level >= 80).length;
+    const totalYears = categorySkills.reduce((sum, skill) => sum + (skill.yearsOfExperience || 0), 0);
+
+    return { avgLevel, expertSkills, totalYears: Math.round(totalYears * 10) / 10 };
+  };
+
+  const stats = getStats();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -65,7 +150,7 @@ const Skills: React.FC = () => {
     return () => {
       skillElements.forEach(el => observer.unobserve(el));
     };
-  }, [activeCategory]);
+  }, [activeCategory, searchTerm, showAll]);
 
   return (
     <section id="skills" className="skills">
@@ -80,31 +165,86 @@ const Skills: React.FC = () => {
           </p>
         </div>
 
-        <div className="skills-categories">
-          {categories.map((category) => (
-            <button
-              key={category.id}
-              className={`category-btn ${activeCategory === category.id ? 'active' : ''}`}
-              onClick={() => setActiveCategory(category.id)}
+        {/* Barre de recherche et filtres */}
+        <div className="skills-controls">
+          <div className="search-container">
+            <input
+              type="text"
+              placeholder="Rechercher une compétence..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="skill-search"
+            />
+            <span className="search-icon">🔍</span>
+          </div>
+          
+          <div className="sort-controls">
+            <label>Trier par:</label>
+            <select 
+              value={sortBy} 
+              onChange={(e) => setSortBy(e.target.value as 'name' | 'level')}
+              className="sort-select"
             >
-              <span className="category-icon">{category.icon}</span>
-              <span className="category-name">{category.name}</span>
-            </button>
-          ))}
+              <option value="level">Niveau</option>
+              <option value="name">Nom</option>
+            </select>
+          </div>
+        </div>
+
+        <div className="skills-categories">
+          {categories.map((category) => {
+            const categorySkillsCount = skills.filter(s => s.category === category.id).length;
+            return (
+              <button
+                key={category.id}
+                className={`category-btn ${activeCategory === category.id ? 'active' : ''}`}
+                onClick={() => setActiveCategory(category.id)}
+              >
+                <span className="category-icon">{category.icon}</span>
+                <span className="category-name">{category.name}</span>
+                <span className="category-count">({categorySkillsCount})</span>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Statistiques de la catégorie */}
+        <div className="category-stats">
+          <div className="stat-item">
+            <span className="stat-icon">📊</span>
+            <span className="stat-label">Niveau moyen: </span>
+            <span className="stat-value">{stats.avgLevel} %</span>
+          </div>
+          <div className="stat-item">
+            <span className="stat-icon">⭐</span>
+            <span className="stat-label">Compétences expertes: </span>
+            <span className="stat-value">{stats.expertSkills}</span>
+          </div>
+          <div className="stat-item">
+            <span className="stat-icon">📅</span>
+            <span className="stat-label">Années d'expérience: </span>
+            <span className="stat-value">{stats.totalYears}</span>
+          </div>
         </div>
 
         <div className="skills-grid">
           {filteredSkills.map((skill, index) => (
             <div
               key={`${skill.name}-${activeCategory}`}
-              className="skill-item"
+              className={`skill-item ${skill.level >= 80 ? 'expert' : skill.level >= 60 ? 'advanced' : 'intermediate'}`}
               data-skill={skill.name}
               style={{ animationDelay: `${index * 0.1}s` }}
+              onClick={() => setSelectedSkill(skill)}
             >
               <div className="skill-header">
                 <div className="skill-info">
                   <span className="skill-icon">{skill.icon}</span>
-                  <span className="skill-name">{skill.name}</span>
+                  <div className="skill-details">
+                    <span className="skill-name">{skill.name}</span>
+                    {skill.yearsOfExperience && (
+                      <span className="skill-years"> {skill.yearsOfExperience} an{skill.yearsOfExperience > 1 ? 's' : ''}</span>
+                    )}
+                  </div>
                 </div>
                 <span className="skill-percentage">{skill.level}%</span>
               </div>
@@ -120,9 +260,55 @@ const Skills: React.FC = () => {
                   } as React.CSSProperties}
                 ></div>
               </div>
+
+              <div className="skill-badges">
+                {skill.level >= 90 && <span className="badge expert-badge">Expert</span>}
+                {skill.level >= 70 && skill.level < 90 && <span className="badge advanced-badge">Avancé</span>}
+                {skill.level < 70 && <span className="badge intermediate-badge">Intermédiaire</span>}
+              </div>
             </div>
           ))}
         </div>
+
+        {/* Bouton Voir plus/moins */}
+        {skills.filter(skill => 
+          skill.category === activeCategory &&
+          skill.name.toLowerCase().includes(searchTerm.toLowerCase())
+        ).length > 6 && (
+          <div className="show-more-container">
+            <button 
+              className="show-more-btn"
+              onClick={() => setShowAll(!showAll)}
+            >
+              {showAll ? '👆 Voir moins' : '👇 Voir plus'}
+            </button>
+          </div>
+        )}
+
+        {/* Modal de détail de compétence */}
+        {selectedSkill && (
+          <div className="skill-modal-overlay" onClick={() => setSelectedSkill(null)}>
+            <div className="skill-modal" onClick={(e) => e.stopPropagation()}>
+              <button className="modal-close" onClick={() => setSelectedSkill(null)}>✕</button>
+              <div className="modal-header">
+                <span className="modal-icon">{selectedSkill.icon}</span>
+                <h3>{selectedSkill.name}</h3>
+                <span className="modal-level">{selectedSkill.level}%</span>
+              </div>
+              <div className="modal-content">
+                <p className="skill-description">{selectedSkill.description}</p>
+                {selectedSkill.yearsOfExperience && (
+                  <p className="skill-experience">
+                    <strong>Expérience:</strong> {selectedSkill.yearsOfExperience} année{selectedSkill.yearsOfExperience > 1 ? 's' : ''}
+                  </p>
+                )}
+                <div className="skill-level-bar">
+                  <div className="level-progress" style={{ width: `${selectedSkill.level}%` }}></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
 
         <div className="skills-summary">
           <div className="summary-card">
@@ -146,6 +332,14 @@ const Skills: React.FC = () => {
             <p>
               Expérience en méthodes agiles et collaboration étroite avec 
               designers, chefs de projet et autres développeurs.
+            </p>
+          </div>
+
+          <div className="summary-card">
+            <h3>📈 Veille technologique</h3>
+            <p>
+              Participation active aux communautés tech, lecture de blogs spécialisés 
+              et expérimentation avec les dernières tendances.
             </p>
           </div>
         </div>

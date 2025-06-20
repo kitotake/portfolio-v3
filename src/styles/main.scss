@@ -1,12 +1,11 @@
-@use './variables' as *;
-@use './animations';
-@use './globals.scss' as *;
-@use './mixins' as *;
+@import './variables.scss' ;
+@import './animations';
+@import './globals.scss';
+@import './mixins';
 
-@use './pages/About.scss'  as *;
-@use './pages/Contact.scss'  as *;
-@use './pages/Header.scss'  as *;
-@use './pages/Footer.scss'  as *;
-@use './pages/Projects.scss'  as *;
-@use './pages/Skills.scss'  as *;
-@use './pages/Hero.scss' as *;
+@import './pages/About.scss' ;
+@import './pages/Contact.scss' ;
+@import './pages/Header.scss' ;
+@import './pages/Projects.scss' ;
+@import './pages/Skills.scss' ;
+@import './pages/Hero.scss';

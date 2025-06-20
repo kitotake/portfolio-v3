@@ -62,8 +62,8 @@ const Hero: React.FC = () => {
           <div className="hero-text">
             <p className="hero-greeting">👋 Salut, je suis</p>
             <h1 className="hero-name">
-              <span className="first-name">Votre</span>
-              <span className="last-name">Nom</span>
+              <span className="first-name">Ahmed</span>
+              <span className="last-name">O.</span>
             </h1>
             <div className="hero-role">
               <span className="role-text">{displayText}</span>

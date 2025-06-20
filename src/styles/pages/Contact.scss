@@ -1,7 +1,7 @@
 
 
-@use '../variables.scss'  as *;
-@use '../mixins.scss'  as *;
+@import '../variables.scss' ;
+@import '../mixins.scss' ;
 
 
 .contact {
@@ -86,6 +86,7 @@
       flex-wrap: wrap;
   
       .social-link {
+        color: $text-primary;
         background: $bg-darker;
         border: 1px solid $secondary-color;
         border-radius: 50%;

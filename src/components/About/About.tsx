@@ -4,8 +4,8 @@ import React from 'react';
 const About: React.FC = () => {
   const stats = [
     { number: '3+', label: 'Années d\'expérience' },
-    { number: '50+', label: 'Projets réalisés' },
-    { number: '100%', label: 'Client satisfaits' },
+    { number: '29+', label: 'Projets réalisés' },
+    { number: '0%', label: 'Client satisfaits' },
     { number: '24/7', label: 'Support disponible' }
   ];
 
@@ -40,16 +40,16 @@ const About: React.FC = () => {
         <div className="about-content">
           <div className="about-text">
             <div className="about-intro">
+            <p className="intro-text">
+                Développeur web passionné depuis plus de 3 ans, je conçois des interfaces modernes et intuitives qui allient performance et créativité.
+                <br></br>
+                <br></br>
+                Mon objectif : donner vie à vos idées à travers des solutions web sur mesure.
+            </p>
               <p className="intro-text">
-                Passionné par le développement web depuis plus de 3 ans, 
-                je crée des expériences digitales qui marquent les esprits. 
-                Ma mission ? Transformer vos idées en solutions innovantes 
-                et performantes.
-              </p>
-              
-              <p className="intro-text">
-                Spécialisé dans les technologies modernes comme React, Node.js, 
-                et Python, j'accompagne mes clients de la conception à la mise 
+                Spécialisé dans les technologies modernes comme React, Node.js,
+                et Html et Css,
+                j'accompagne mes clients de la conception à la mise 
                 en production de leurs projets web.
               </p>
             </div>
