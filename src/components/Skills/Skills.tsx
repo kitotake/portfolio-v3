@@ -24,7 +24,7 @@ const skills: ExtendedSkill[] = [
   { name: 'SCSS', level: 5, icon: '🎨', category: 'frontend', description: 'Préprocesseur CSS avec variables et fonctions',  },
   { name: 'Tailwind', level: 0, icon: '🌊', category: 'frontend', description: 'Framework CSS utilitaire pour un développement rapide',  },
   { name: 'HTML5', level: 75, icon: '🌐', category: 'frontend', description: 'Langage de balisage pour structurer le contenu web',   },
-  { name: 'CSS3', level: 85, icon: '🎭', category: 'frontend', description: 'Feuilles de styles pour la présentation web',   },
+  { name: 'CSS3', level: 75, icon: '🎭', category: 'frontend', description: 'Feuilles de styles pour la présentation web',   },
   { name: 'JavaScript', level: 10, icon: '⚡', category: 'frontend', description: 'Langage de programmation pour le web interactif',   },
   
   // Backend
@@ -328,7 +328,7 @@ const skills: ExtendedSkill[] = [
               au cœur de chacun de mes projets.
             </p>
           </div>
-          
+         
           <div className="summary-card">
             <h3>🤝 Travail d'équipe</h3>
             <p>
@@ -344,6 +344,23 @@ const skills: ExtendedSkill[] = [
               et expérimentation avec les dernières tendances.
             </p>
           </div>
+          <div className="summary-card">
+            <h3>
+            ⚡ Performance & optimisation</h3>
+            <p>
+            Optimisation du chargement, réduction des ressources, et amélioration de la fluidité des applications.
+            </p>
+          </div>
+          <div className="summary-card">
+            <h3>🌍 Sensibilité UX/UI</h3>
+            <p>
+            Intégration d’une réflexion centrée utilisateur pour créer des interfaces intuitives et agréables.S
+            </p>
+          </div>
+         
+
+
+
         </div>
       </div>
     </section>
