@@ -64,7 +64,7 @@ const Projects: React.FC = () => {
     // }
   ];
 
-  const techCategories = ['all', 'React', 'Vue.js', 'Next.js', 'Node.js', 'Python'];
+  const techCategories = ['all', 'React', 'Vue.js', 'Next.js', 'Node.js', 'Html'];
 
   const filteredProjects = filter === 'all' 
     ? projects 

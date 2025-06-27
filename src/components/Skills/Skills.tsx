@@ -9,14 +9,14 @@ const Skills: React.FC = () => {
   const [selectedSkill, setSelectedSkill] = useState<ExtendedSkill | null>(null);
   const [sortBy, setSortBy] = useState<'name' | 'level'>('level');
 
-  // Interface étendue pour les données supplémentaires
+
   interface ExtendedSkill extends Skill {
     description?: string;
   }
 
  
 const skills: ExtendedSkill[] = [
-  // Frontend
+
   { name: 'React', level: 1, icon: '⚛️', category: 'frontend', description: 'Bibliothèque JavaScript pour créer des interfaces utilisateur interactives',  },
   { name: 'TypeScript', level: 0, icon: '🔷', category: 'frontend', description: 'Superset de JavaScript avec typage statique',  },
   { name: 'Next.js', level: 1, icon: '▲', category: 'frontend', description: 'Framework React avec rendu côté serveur et génération statique',  },
@@ -27,7 +27,7 @@ const skills: ExtendedSkill[] = [
   { name: 'CSS3', level: 75, icon: '🎭', category: 'frontend', description: 'Feuilles de styles pour la présentation web',   },
   { name: 'JavaScript', level: 10, icon: '⚡', category: 'frontend', description: 'Langage de programmation pour le web interactif',   },
   
-  // Backend
+  
   { name: 'Node.js', level: 15, icon: '🟢', category: 'backend', description: 'Environnement d\'exécution JavaScript côté serveur',  },
   { name: 'Python', level: 2, icon: '🐍', category: 'backend', description: 'Langage de programmation polyvalent et puissant',  },
   { name: 'Express.js', level: 0, icon: '🚂', category: 'backend', description: 'Framework web minimaliste pour Node.js',  },
@@ -35,19 +35,19 @@ const skills: ExtendedSkill[] = [
   { name: 'GraphQL', level: 0, icon: '📊', category: 'backend', description: 'Langage de requête pour APIs',  },
   { name: 'REST API', level: 0, icon: '🔌', category: 'backend', description: 'Architecture pour services web',  },
   
-  // Database
+  
   { name: 'MariaDB', level: 5, icon: '🐬', category: 'database', description: 'Base de données relationnelle performante',   },
   { name: 'MongoDB', level: 0, icon: '🍃', category: 'database', description: 'Base de données NoSQL orientée documents',  },
   { name: 'PostgreSQL', level: 2, icon: '🐘', category: 'database', description: 'Base de données relationnelle avancée',  },
   { name: 'Redis', level: 0, icon: '🔴', category: 'database', description: 'Base de données en mémoire pour le cache',  },
   
-  // Design
+  
   { name: 'Figma', level: 75, icon: '🎯', category: 'design', description: 'Outil de design collaboratif pour interfaces',   },
   { name: 'Canva', level: 45, icon: '✨', category: 'design', description: 'Plateforme de création graphique simple',  },
   { name: 'GIMP', level: 25, icon: '🖼️', category: 'design', description: 'Éditeur d\'images libre et gratuit',   },
   { name: 'Adobe XD', level: 15, icon: '🎨', category: 'design', description: 'Outil de conception UX/UI',  },
       
-  // Tools
+
   { name: 'Git', level: 35, icon: '📝', category: 'tools', description: 'Système de contrôle de version distribué', },
   { name: 'VS Code', level: 45, icon: '💻', category: 'tools', description: 'Éditeur de code puissant et extensible',  },
   { name: 'Webpack', level: 0, icon: '📦', category: 'tools', description: 'Bundler de modules pour applications web',  },
@@ -55,13 +55,13 @@ const skills: ExtendedSkill[] = [
   { name: 'ESLint', level: 0, icon: '📏', category: 'tools', description: 'Linter pour identifier les problèmes de code',  },
   { name: 'Prettier', level: 3, icon: '✨', category: 'tools', description: 'Formateur de code automatique',  },
 
-  // DevOps
+  
   { name: 'Docker', level: 0, icon: '🐳', category: 'devops', description: 'Plateforme de conteneurisation d\'applications', },
   { name: 'AWS', level: 0, icon: '☁️', category: 'devops', description: 'Services cloud Amazon Web Services',  },
   { name: 'Nginx', level: 0, icon: '🌐', category: 'devops', description: 'Serveur web et proxy inverse performant',  },
   { name: 'CI/CD', level: 0, icon: '🔄', category: 'devops', description: 'Intégration et déploiement continus',  },
 
-  // Testing
+
   { name: 'Jest', level: 0, icon: '🃏', category: 'testing', description: 'Framework de test JavaScript',  },
   { name: 'Cypress', level: 0, icon: '🌲', category: 'testing', description: 'Outil de test end-to-end',  },
   { name: 'Testing Library', level: 0, icon: '🧪', category: 'testing', description: 'Utilitaires pour tester les composants',  },
@@ -71,7 +71,6 @@ const skills: ExtendedSkill[] = [
   { name: 'FiveM', level: 50, icon: '🎮', category: 'other',
     description: 'Développement complet de serveurs FiveM avec gestion du backend, UI web et bonnes pratiques de sécurité.',},
 
-  // Security
   { name: 'JWT', level: 0, icon: '🔐', category: 'security', description: 'Tokens sécurisés pour l\'authentification',  },
   { name: 'OAuth', level: 0, icon: '🛡️', category: 'security', description: 'Protocole d\'autorisation sécurisé',  },
   { name: 'HTTPS/SSL', level: 1, icon: '🔒', category: 'security', description: 'Protocoles de sécurisation des communications',  },
@@ -92,14 +91,13 @@ const skills: ExtendedSkill[] = [
     { id: 'other', name: 'Autres', icon: '📦' },
   ];
 
-  // Filtrage et tri des compétences
+  
   const getFilteredAndSortedSkills = () => {
     let filtered = skills.filter(skill => 
       skill.category === activeCategory &&
       skill.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
-    // Tri par niveau ou nom
     filtered.sort((a, b) => {
       if (sortBy === 'level') {
         return b.level - a.level;
@@ -107,7 +105,6 @@ const skills: ExtendedSkill[] = [
       return a.name.localeCompare(b.name);
     });
 
-    // Limiter l'affichage si showAll est false
     if (!showAll && filtered.length > 6) {
       filtered = filtered.slice(0, 6);
     }
@@ -117,7 +114,6 @@ const skills: ExtendedSkill[] = [
 
   const filteredSkills = getFilteredAndSortedSkills();
 
-  // Statistiques
   const getStats = () => {
     const categorySkills = skills.filter(skill => skill.category === activeCategory);
     const avgLevel = Math.round(categorySkills.reduce((sum, skill) => sum + skill.level, 0) / categorySkills.length);
