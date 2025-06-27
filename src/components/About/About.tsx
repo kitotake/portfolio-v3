@@ -4,7 +4,7 @@ import React from 'react';
 const About: React.FC = () => {
   const stats = [
     { number: '3+', label: 'Années d\'expérience' },
-    { number: '29+', label: 'Projets réalisés' },
+    { number: '4+', label: 'Projets réalisés' },
     { number: '0%', label: 'Client satisfaits' },
     { number: '24/7', label: 'Support disponible' }
   ];

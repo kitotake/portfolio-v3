@@ -192,7 +192,8 @@
             .overlay-actions {
               display: flex;
               gap: $spacing-xs;
-  
+              stroke: black;
+            
               .action-btn {
                 background: $primary-gradient;
                 padding: 0.4rem;
@@ -201,7 +202,8 @@
                 align-items: center;
                 justify-content: center;
                 transition: transform 0.2s;
-  
+                color: rgba(0, 0, 0, 0.6);          
+                text-decoration: none; 
                 svg {
                   stroke: $text-primary;
                 }

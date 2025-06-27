@@ -8,60 +8,60 @@ const Projects: React.FC = () => {
   const projects: Project[] = [
     {
       id: 1,
-      title: 'E-commerce Platform',
-      description: 'Plateforme e-commerce complète avec système de paiement intégré, gestion des stocks et interface d\'administration avancée.',
-      tech: ['React', 'Node.js', 'MongoDB', 'Stripe', 'Redux'],
-      image: '/api/placeholder/600/400',
-      link: 'https://example-ecommerce.com',
-      github: 'https://github.com/username/ecommerce',
+      title: 'Booki',
+      description: 'Plateforme de réservation de logements et de Activités',
+      tech: ['Html', 'Css'],
+      image: 'https://i.imgur.com/KDcZGi6.png',
+      link: 'https://kitotake.github.io/booki/',
+      github: 'https://github.com/kitotake/booki',
       featured: true
     },
     {
       id: 2,
-      title: 'Task Management App',
-      description: 'Application de gestion de tâches collaborative avec temps réel, notifications push et intégration calendrier.',
-      tech: ['Vue.js', 'Express.js', 'Socket.io', 'PostgreSQL'],
-      image: '/api/placeholder/600/400',
-      link: 'https://example-taskapp.com',
-      github: 'https://github.com/username/task-app',
+      title: 'Ohmyfood',
+      description: 'Ohmyfood est un site web mobile-first permettant aux utilisateurs de consulter et précommander des menus gastronomiques de restaurants haut de gamme à Paris.',
+      tech: ['HTML', 'CSS', 'Sass', 'Node.js'],
+      image: 'https://i.imgur.com/trV0wSx.png',
+      link: 'https://kitotake.github.io/Ohmyfood/',
+      github: 'https://github.com/kitotake/Ohmyfood',
       featured: true
     },
     {
       id: 3,
-      title: 'Weather Dashboard',
-      description: 'Dashboard météo interactif avec prévisions détaillées, cartes interactives et alertes personnalisées.',
-      tech: ['React', 'TypeScript', 'Chart.js', 'OpenWeather API'],
-      image: '/api/placeholder/600/400',
-      link: 'https://example-weather.com',
-      github: 'https://github.com/username/weather-app'
+      title: 'Riding-Citites',
+      description: 'Riding Cities est une application web qui permet aux utilisateurs de consulter, comparer et explorer des services de mobilité urbaine (vélos, trottinettes...) dans différentes grandes villes.',
+      tech: [ 'Html', 'Css'],
+      image: 'https://i.imgur.com/GnjCFZR.png',
+      link: 'https://kitotake.github.io/Riding-Citites/',
+      github: 'https://github.com/kitotake/Riding-Citites'
     },
     {
       id: 4,
-      title: 'Blog CMS',
-      description: 'Système de gestion de contenu pour blogs avec éditeur WYSIWYG, système de commentaires et SEO optimisé.',
-      tech: ['Next.js', 'Prisma', 'TailwindCSS', 'Vercel'],
-      image: '/api/placeholder/600/400',
-      link: 'https://example-blog.com',
-      github: 'https://github.com/username/blog-cms'
-    },
-    {
-      id: 5,
-      title: 'Portfolio Creative',
-      description: 'Portfolio créatif pour artiste avec galerie interactive, animations 3D et système de contact avancé.',
-      tech: ['Three.js', 'GSAP', 'Nuxt.js', 'SCSS'],
-      image: '/api/placeholder/600/400',
-      link: 'https://example-portfolio.com',
-      github: 'https://github.com/username/creative-portfolio'
-    },
-    {
-      id: 6,
-      title: 'Analytics Dashboard',
-      description: 'Dashboard d\'analyse de données en temps réel avec graphiques interactifs et export de rapports.',
-      tech: ['React', 'D3.js', 'Python', 'FastAPI', 'Docker'],
-      image: '/api/placeholder/600/400',
-      link: 'https://example-analytics.com',
-      github: 'https://github.com/username/analytics-dashboard'
-    }
+      title: 'Print-it',
+      description: 'Print-it est un projet de site vitrine pour une entreprise spécialisée dans l’impression en ligne.',
+      tech: ['Html', 'Css', 'Javascript'],
+      image: 'https://i.imgur.com/rzKnzBX.png',
+           link: 'https://kitotake.github.io/Print-it/',
+      github: 'https://github.com/kitotake/Print-it'
+     },
+    // {
+    //   id: 5,
+    //   title: 'Portfolio Creative',
+    //   description: 'Portfolio créatif pour artiste avec galerie interactive, animations 3D et système de contact avancé.',
+    //   tech: ['Three.js', 'GSAP', 'Nuxt.js', 'SCSS'],
+    //   image: '/api/placeholder/600/400',
+    //   link: 'https://example-portfolio.com',
+    //   github: 'https://github.com/username/creative-portfolio'
+    // },
+    // {
+    //   id: 6,
+    //   title: 'Analytics Dashboard',
+    //   description: 'Dashboard d\'analyse de données en temps réel avec graphiques interactifs et export de rapports.',
+    //   tech: ['React', 'D3.js', 'Python', 'FastAPI', 'Docker'],
+    //   image: '/api/placeholder/600/400',
+    //   link: 'https://example-analytics.com',
+    //   github: 'https://github.com/username/analytics-dashboard'
+    // }
   ];
 
   const techCategories = ['all', 'React', 'Vue.js', 'Next.js', 'Node.js', 'Python'];
@@ -218,10 +218,10 @@ const Projects: React.FC = () => {
               </div>
               <div className="modal-actions">
                 <a href={selectedProject.link} target="_blank" rel="noopener noreferrer" className="action-btn">
-                  Voir le projet
+                  Voir le projet [site]
                 </a>
                 <a href={selectedProject.github} target="_blank" rel="noopener noreferrer" className="action-btn">
-                  Code source
+                  Code source du projet
                 </a>
               </div>
             </div>
