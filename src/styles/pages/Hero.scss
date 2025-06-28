@@ -262,9 +262,7 @@
 }
 
 .scroll-indicator {
-  position: absolute;
-  bottom: 3rem;
-  left: 50%;
+  margin-top: 25px;
   transform: translateX(-50%);
   @include flex-center;
   flex-direction: column;

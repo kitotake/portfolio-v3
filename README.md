@@ -17,7 +17,9 @@ Ce projet est un portfolio personnel développé avec **React**, **TypeScript**,
 
 ## 🎯 À propos
 
-Bienvenue sur mon portfolio ! Je suis [Votre Nom], [votre titre/spécialité]. Ce portfolio présente une sélection de mes projets les plus significatifs et démontre mes compétences techniques et créatives.
+Bienvenue sur mon portfolio ! Je suis Ahmed, Développeur Full Stack.
+Je suis passionné par la création de solutions numériques innovantes.
+Ce portfolio présente une sélection de mes projets les plus significatifs et démontre mes compétences techniques et créatives.
 
 ## 🛠️ Technologies utilisées
 
@@ -32,7 +34,8 @@ Bienvenue sur mon portfolio ! Je suis [Votre Nom], [votre titre/spécialité]. C
 ### Outils & Autres
 - Git & GitHub
 - Figma 
-## 🚀 Projets mis en avant
+
+<!-- ## 🚀 Projets mis en avant
 
 ### 1. [Nom du Projet 1]
 **Description :** Brève description du projet et de son objectif principal.
@@ -50,32 +53,22 @@ Bienvenue sur mon portfolio ! Je suis [Votre Nom], [votre titre/spécialité]. C
 **Description :** Brève description du projet et de son objectif principal.
 - **Technologies :** Angular, PHP, MySQL
 - **Fonctionnalités clés :** E-commerce, paiement en ligne, gestion d'inventaire
-- **Lien :** [Démo en ligne](https://votre-lien.com) | [Code source](https://github.com/votre-username/projet3)
+- **Lien :** [Démo en ligne](https://votre-lien.com) | [Code source](https://github.com/votre-username/projet3) -->
 
-## 💼 Expérience
+<!-- ## 💼 Expérience
 
 - **[Poste actuel]** chez [Entreprise] (2023 - Présent)
 - **[Poste précédent]** chez [Entreprise] (2021 - 2023)
-- **[Formation]** - [École/Université] (2020)
+- **[Formation]** - [École/Université] (2020) -->
 
 ## 🎓 Compétences
 
 **Développement Web**
-- Frontend : ⭐⭐⭐⭐⭐
-- Backend : ⭐⭐⭐⭐⭐
-- Base de données : ⭐⭐⭐⭐
-- DevOps : ⭐⭐⭐
+- Frontend : ⭐⭐⭐⭐
+- Backend : ⭐⭐⭐⭐
+- Base de données : ⭐⭐⭐
+- DevOps : ⭐⭐
 
-**Design & UX/UI**
-- Prototypage : ⭐⭐⭐⭐
-- Design responsive : ⭐⭐⭐⭐⭐
-- Accessibilité : ⭐⭐⭐⭐
-
-## 📈 Statistiques GitHub
-
-![Statistiques GitHub](https://github-readme-stats.vercel.app/api?username=votre-username&show_icons=true&theme=dark)
-
-![Langages les plus utilisés](https://github-readme-stats.vercel.app/api/top-langs/?username=votre-username&layout=compact&theme=dark)
 
 ## 🌐 Liens utiles
 
@@ -106,4 +99,6 @@ Ce portfolio est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus 
 
 ⭐ **Merci de visiter mon portfolio !** N'hésitez pas à laisser une étoile si vous avez aimé ce que vous avez vu.
 
-*Dernière mise à jour : [Date]*
+*Dernière mise à jour : [28/06/2025]*
+
+

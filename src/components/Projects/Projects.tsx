@@ -41,7 +41,7 @@ const Projects: React.FC = () => {
       description: 'Print-it est un projet de site vitrine pour une entreprise spécialisée dans l’impression en ligne.',
       tech: ['Html', 'Css', 'Javascript'],
       image: 'https://i.imgur.com/rzKnzBX.png',
-           link: 'https://kitotake.github.io/Print-it/',
+      link: 'https://kitotake.github.io/Print-it/',
       github: 'https://github.com/kitotake/Print-it'
      },
     // {

@@ -2574,9 +2574,7 @@ section {
 }
 
 .scroll-indicator {
-  position: absolute;
-  bottom: 3rem;
-  left: 50%;
+  margin-top: 25px;
   transform: translateX(-50%);
   display: flex;
   align-items: center;
