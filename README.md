@@ -72,16 +72,16 @@ Ce portfolio présente une sélection de mes projets les plus significatifs et d
 
 ## 🌐 Liens utiles
 
-- **Portfolio en ligne :** [votre-portfolio.com](https://votre-portfolio.com)
+- **Portfolio en ligne :** [portfolio-kito.com](https://portfolio-kito.com)
 
-- **GitHub :** [github.com/votre-username](https://github.com/kitotake)
+- **GitHub :** [github.com/kitotake](https://github.com/kitotake)
 
 ## 📱 Contact
 
 N'hésitez pas à me contacter pour discuter d'opportunités professionnelles ou de collaborations !
 
 - 📧 **Email :** trotest27@gmail.com
-- 🐦 **Twitter | X :** [@votre_handle](https://x.com/KitotakeLevrai)
+- 🐦 **Twitter | X :** [@KitotakeLevrai](https://x.com/KitotakeLevrai)
 - 📱 **Téléphone :** +33 6 XX XX XX XX
 
 ## ⚡ Faits amusants
