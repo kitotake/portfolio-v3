@@ -9,19 +9,20 @@ import { Analytics } from "@vercel/analytics/react";
 
 function App() {
   return (
-      <div className="App">
-            <Header />
-                  <main>
-                          <Hero />
-                                  <About />
-                                          <Skills />
-                                                  <Projects />
-                                                          <Contact />
-                                                                </main>
-                                                                      {/* Ajout du tracking Vercel */}
-                                                                            <Analytics />
-                                                                                </div>
-                                                                                  );
-                                                                                  }
+    <div className="App">
+      <Header />
+      <main>
+        <Hero />
+        <About />
+        <Skills />
+        <Projects />
+        <Contact />
+      </main>
 
-                                                                                  export default App;
+      {/* Ajout du tracking Vercel */}
+      <Analytics />
+    </div>
+  );
+}
+
+export default App;
