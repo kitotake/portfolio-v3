@@ -5,15 +5,14 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-   "build": "tsc && npm run build:scss && vite build",
-   "build:scss": "sass src/styles/main.scss src/index.css",
+    "build": "tsc && npm run build:scss && vite build",
+    "build:scss": "sass src/styles/main.scss src/index.css",
     "preview": "vite preview",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "lint:fix": "eslint . --ext ts,tsx --fix"
-
-
   },
   "dependencies": {
+    "@vercel/analytics": "^1.5.0",
     "lucide-react": "^0.518.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
