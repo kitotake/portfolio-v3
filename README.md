@@ -80,7 +80,7 @@ Ce portfolio présente une sélection de mes projets les plus significatifs et d
 
 N'hésitez pas à me contacter pour discuter d'opportunités professionnelles ou de collaborations !
 
-- 📧 **Email :** trotest27@gmail.com
+- 📧 **Email :** contact@portfolio-kito.com
 - 🐦 **Twitter | X :** [@KitotakeLevrai](https://x.com/KitotakeLevrai)
 - 📱 **Téléphone :** +33 6 XX XX XX XX
 
