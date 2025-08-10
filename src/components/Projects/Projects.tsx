@@ -49,7 +49,7 @@ const Projects: React.FC = () => {
       title: 'Fleurs Vitrine',
       description: 'Présentation soignée de bouquets et compositions florales, alliant élégance, couleurs et raffinement.',
       tech: ['Html', 'Css', 'Javascript', 'SCSS'],
-      image: 'https://imgur.com/a/3dII4mu',
+      image: 'https://i.imgur.com/ZGEs6Ym.png',
       link: 'https://kitotake.github.io/fleurs/',
       github: 'https://github.com/kitotake/fleurs',
       featured: true
@@ -59,7 +59,7 @@ const Projects: React.FC = () => {
        title: 'Favorie de anime / film [faut que je corrige le deploiment du ptoject mais tout est goods] ',
        description: 'Catalogue personnalisé d’animes et films favoris, alliant simplicité, rapidité et plaisir de visionnage.',
        tech: ['Html', 'Css', 'Javascript'],
-       image: 'https://imgur.com/a/3dII4mu',
+       image: 'https://i.imgur.com/XiPHHgb.png',
        link: 'https://kitotake.github.io/anime-fav/',
        github: 'https://github.com/kitotake/anime-fav',
        featured: true
