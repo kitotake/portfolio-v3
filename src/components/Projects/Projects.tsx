@@ -64,9 +64,17 @@ const Projects: React.FC = () => {
        github: 'https://github.com/kitotake/anime-fav',
        featured: true
      },
-    
+      // {
+    //   id: 7,
+    //   title: 'Analytics Dashboard',
+    //   description: 'Dashboard d\'analyse de données en temps réel avec graphiques interactifs et export de rapports.',
+    //   tech: ['React', 'D3.js', 'Python', 'FastAPI', 'Docker'],
+    //   image: '/api/placeholder/600/400',
+    //   link: 'https://example-analytics.com',
+    //   github: 'https://github.com/username/analytics-dashboard'
+    // },
     // {
-    //   id: 6,
+    //   id: 8,
     //   title: 'Analytics Dashboard',
     //   description: 'Dashboard d\'analyse de données en temps réel avec graphiques interactifs et export de rapports.',
     //   tech: ['React', 'D3.js', 'Python', 'FastAPI', 'Docker'],

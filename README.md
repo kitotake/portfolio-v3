@@ -99,6 +99,6 @@ Ce portfolio est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus 
 
 ⭐ **Merci de visiter mon portfolio !** N'hésitez pas à laisser une étoile si vous avez aimé ce que vous avez vu.
 
-*Dernière mise à jour : [28/06/2025]*
+*Dernière mise à jour : [18/08/2025]*
 
 
